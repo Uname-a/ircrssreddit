@@ -154,7 +154,6 @@ func (b *bot) getPosts() {
 				tmpLargest = decoded
 			}
 			if b.lastID < decoded {
-				name := ""
 				if v.Author == nil {
 					name = "account_deleted"
 				} else {
