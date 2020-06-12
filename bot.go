@@ -161,7 +161,7 @@ func (b *bot) getPosts() {
 					name = v.Author.Name
 				}
 
-				b.send <- fmt.Sprintf("[%s] [%s] %s https://redd.it/%s", name, v.Title, v.GUID[3:])
+				b.send <- fmt.Sprintf("[%s] %s https://redd.it/%s", v.Title, v.GUID[3:])
 			}
 		}
 	}
