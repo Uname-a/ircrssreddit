@@ -133,7 +133,6 @@ func (b *bot) firstRun() error {
 }
 
 func (b *bot) getPosts() {
-	reddit := "reddit"
 	var tmpLargest uint64
 	dup := make(map[uint64]bool)
 	for _, v := range b.endpoints {
@@ -161,10 +160,8 @@ func (b *bot) getPosts() {
 				} else {
 					name = v.Author.Name
 				}
-				if b.printSubreddit && v.Categories != nil {
-					reddit = "/r/" + v.Categories[0]
-				}
-				b.send <- fmt.Sprintf("[%s] [%s] %s https://redd.it/%s", reddit, name, v.Title, v.GUID[3:])
+
+				b.send <- fmt.Sprintf("[%s] [%s] %s https://redd.it/%s", name, v.Title, v.GUID[3:])
 			}
 		}
 	}
